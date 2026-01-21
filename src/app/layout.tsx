@@ -30,5 +30,21 @@ export default function RootLayout({
 				{children}
 			</body>
 		</html>
+import { storyblokInit, apiPlugin } from '@storyblok/react/rsc';
+
+storyblokInit({
+  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_CONTENT_API_ACCESS_TOKEN,
+  use: [apiPlugin],
+  // Optional: if your space is in the US region
+  // apiOptions: {
+  //   region: 'us',
+  // },
+});
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
 	);
 }
